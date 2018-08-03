@@ -31,7 +31,7 @@ function listAllProducts(callback) {
             var arr = results[i];
             inventory.push(arr);
         }
-       
+
         console.table(inventory);
         callback(inventory);
 
