@@ -21,7 +21,7 @@ connection.connect(function (err) {
 
 });
 
-function listAllProducts(callback) {
+function listAllProducts(stuff) {
     connection.query("SELECT * FROM products", function (err, results) {
         if (err) throw err;
         console.log("\nITEMS FOR SALE\n=============================");
@@ -33,8 +33,8 @@ function listAllProducts(callback) {
         }
 
         console.table(inventory);
-        callback(inventory);
-
+        stuff(inventory);
+        // not exactly sure about this
     });
 }
 
@@ -56,7 +56,7 @@ function promptUser(inventory) {
                     return x.item_id===value;
                 }));
                 
-                //kept getting an index of -1 before I made it zerofill... why?
+         //kept getting an index of -1 before I made it zerofill... why?
 
                if (inventory.findIndex(x=>x.item_id===value)){
                    //var id = inventory.findIndex(x=>x.item_id===value);
@@ -111,7 +111,7 @@ function promptUser(inventory) {
 }
 
 function start() {
-    listAllProducts(promptUser);
-}
+   listAllProducts(promptUser);
+ }
 
-start();
+ start();
